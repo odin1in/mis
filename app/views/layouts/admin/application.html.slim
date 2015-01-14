@@ -28,8 +28,12 @@ html
           ul.nav.navbar-nav
             - if can? :manage, User
                 li = link_to "User", :admin_users
+            - if can? :manage, Admin::Supplier
+                li = link_to "Supplier", :admin_suppliers
+            - if can? :manage, Admin::Supplier
+                li = link_to "Product", :admin_products
           ul.nav.navbar-nav.navbar-right
-            li = link_to "Front", :admin_welcome_index
+            li = link_to "Front", root_path
             li = link_to "Logout", destroy_user_session_path, method: :delete
     .container
       - flash.each do |name, msg|

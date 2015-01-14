@@ -8,10 +8,14 @@ class Ability
     if user.customer_service?
       can :access, Admin
       can :manage, User
+      can :manage, Admin::Product
     elsif user.warehouse_manager?
       can :access, Admin
+      can :manage, Admin::Product
     elsif user.purchaser?
       can :access, Admin
+      can :manage, Admin::Product
+      can :manage, Admin::Supplier
     elsif user.admin?
       can :manage, :all
       can :access, Admin

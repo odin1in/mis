@@ -26,8 +26,6 @@ html
           = link_to "Mis", "/", :class => "navbar-brand"
         .collapse.navbar-collapse
           ul.nav.navbar-nav
-            - if can? :manage, User
-                li = link_to "User", :admin_users
           ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               - if can? :access, Admin
@@ -42,4 +40,5 @@ html
           button.close type="button" data-dismiss="alert" aria-hidden="true"
             | &times;
           = msg
+
       = yield

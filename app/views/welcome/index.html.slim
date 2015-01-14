@@ -1,5 +1,19 @@
-.page-header
-  h1
-    | Welcome#index
-p
-  | Find me in app/views/welcome/index.html.slim
+.jumbotron
+  h1 E-commerce
+  p Fullfill your imagination
+  p Fullfill your thirst of buying
+
+.row
+  - @products.each do |product|
+    .col-sm-6.col-md-4
+      .thumbnail
+        img src="#{product.image}" alt="..." style="max-height: 200px; overflow:hidden;"
+        .caption
+          h3
+            = product.title
+            small<> Quantity: #{product.qoh}
+          p = truncate(product.content)
+          p
+            a.btn.btn-primary href="#" role="button"  Buy Now
+
+

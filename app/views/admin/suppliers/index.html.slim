@@ -1,0 +1,35 @@
+.page-header
+  = link_to new_admin_supplier_path, :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-plus
+    |  New Supplier
+  h1
+    | Listing admin_suppliers
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Name
+        th
+          | Address
+        th
+          | Phone
+        th
+        th
+        th
+    tbody
+      - @admin_suppliers.each do | admin_supplier |
+        tr
+          td
+            = admin_supplier.name
+          td
+            = admin_supplier.address
+          td
+            = admin_supplier.phone
+          td
+            = link_to 'Show', admin_supplier
+          td
+            = link_to 'Edit', edit_admin_supplier_path(admin_supplier) 
+          td
+            = link_to 'Destroy', admin_supplier, method: :delete, data: { confirm: 'Are you sure?' } 

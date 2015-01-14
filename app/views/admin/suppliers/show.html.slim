@@ -1,0 +1,22 @@
+.page-header
+  = link_to admin_suppliers_path, :class => 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
+  = link_to edit_admin_supplier_path(@admin_supplier), :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-pencil
+    |  Edit 
+  h1
+    | Show admin_supplier
+dl.dl-horizontal
+  dt
+    | Name:
+  dd
+    = @admin_supplier.name
+  dt
+    | Address:
+  dd
+    = @admin_supplier.address
+  dt
+    | Phone:
+  dd
+    = @admin_supplier.phone

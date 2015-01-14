@@ -1,0 +1,38 @@
+.page-header
+  = link_to admin_products_path, :class => 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
+  = link_to edit_admin_product_path(@admin_product), :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-pencil
+    |  Edit 
+  h1
+    | Show admin_product
+dl.dl-horizontal
+  dt
+    | Title:
+  dd
+    = @admin_product.title
+  dt
+    | Content:
+  dd
+    = @admin_product.content
+  dt
+    | Status:
+  dd
+    = @admin_product.status
+  dt
+    | Qoh:
+  dd
+    = @admin_product.qoh
+  dt
+    | Price:
+  dd
+    = @admin_product.price
+  dt
+    | Supplier:
+  dd
+    = @admin_product.supplier_id
+  dt
+    | Safety:
+  dd
+    = @admin_product.safety

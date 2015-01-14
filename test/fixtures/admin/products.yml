@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  content: MyText
+  status: 1
+  qoh: 1
+  price: 1
+  supplier_id: 1
+  safety: 1
+
+two:
+  title: MyString
+  content: MyText
+  status: 1
+  qoh: 1
+  price: 1
+  supplier_id: 1
+  safety: 1
