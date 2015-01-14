@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+
+  get 'welcome/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
+  root 'welcome#index'
+  namespace :admin do
+    get 'welcome/index'
+    resources :users, except: [:new, :create]
+  end
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
