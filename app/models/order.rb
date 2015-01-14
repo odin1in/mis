@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  audited
   enum status: %i(pending delivered done returned)
   belongs_to :product
   belongs_to :user

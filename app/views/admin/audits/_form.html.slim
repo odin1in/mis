@@ -1,0 +1,48 @@
+= form_for(@admin_audit, :html => { :class => "form-horizontal" }) do |f|
+  - if @admin_audit.errors.any?
+    .alert.alert-danger.alert-dismissable
+      button.close type="button" data-dismiss="alert" aria-hidden="true" 
+        | &times;
+      h4= "#{pluralize(@admin_audit.errors.count,"error")} prohibited this admin_audit from being saved:"
+      ul
+        - @admin_audit.errors.full_messages.each do |msg|
+          li= msg
+  .form-group
+    = f.label :auditable_id, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :auditable_id, :class => "form-control"
+  .form-group
+    = f.label :associated_type, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :associated_type, :class => "form-control"
+  .form-group
+    = f.label :associated_id, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :associated_id, :class => "form-control"
+  .form-group
+    = f.label :associated_type, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :associated_type, :class => "form-control"
+  .form-group
+    = f.label :user_id, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :user_id, :class => "form-control"
+  .form-group
+    = f.label :user_type, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :user_type, :class => "form-control"
+  .form-group
+    = f.label :username, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :username, :class => "form-control"
+  .form-group
+    = f.label :action, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :action, :class => "form-control"
+  .form-group
+    = f.label :audited_changes, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :audited_changes, :class => "form-control"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit :class => "btn btn-primary"

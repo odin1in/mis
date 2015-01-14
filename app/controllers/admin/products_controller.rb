@@ -1,7 +1,10 @@
 class Admin::ProductsController < Admin::ApplicationController
   load_and_authorize_resource
-  before_action :set_admin_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_product, only: [:show, :edit, :update, :destroy, :buyers]
 
+  def buyers
+    @admin_users = @admin_product.users.all
+  end
   # GET /admin/products
   # GET /admin/products.json
   def index

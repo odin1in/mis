@@ -1,5 +1,8 @@
 class Product < ActiveRecord::Base
+  audited
   has_many :products
+  has_many :users, through: :orders
+  has_many :orders
   belongs_to :supplier
   enum status: %i(inactive active)
 

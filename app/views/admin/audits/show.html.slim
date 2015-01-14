@@ -1,0 +1,43 @@
+.page-header
+  = link_to admin_audits_path, :class => 'btn btn-default' do
+    span.glyphicon.glyphicon-list-alt
+    |  Back
+  h1
+    | Show admin_audit
+dl.dl-horizontal
+  dt
+    | Auditable:
+  dd
+    = @admin_audit.auditable_id
+  dt
+    | Associated type:
+  dd
+    = @admin_audit.associated_type
+  dt
+    | Associated:
+  dd
+    = @admin_audit.associated_id
+  dt
+    | Associated type:
+  dd
+    = @admin_audit.associated_type
+  dt
+    | User:
+  dd
+    = @admin_audit.user_id
+  dt
+    | User type:
+  dd
+    = @admin_audit.user_type
+  dt
+    | Username:
+  dd
+    = @admin_audit.username
+  dt
+    | Action:
+  dd
+    = @admin_audit.action
+  dt
+    | Audited changes:
+  dd
+    = @admin_audit.audited_changes

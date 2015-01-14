@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :feedbacks, only: [:new, :create]
   resources :products do
     resources :orders, only: [:new, :create]
@@ -17,10 +16,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'welcome/index'
+    resources :audits, only: [:index, :show]
     resources :users, except: [:new, :create]
     resources :suppliers
     resources :orders, except: [:destroy, :new, :create]
     resources :products do
+      member do
+        get 'buyers'
+      end
       # resources :orders, only: [:new, :create]
     end
     resources :orders, only: [:index, :show, :edit, :create]

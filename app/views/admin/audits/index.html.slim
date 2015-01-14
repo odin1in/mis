@@ -1,0 +1,50 @@
+.page-header
+  h1
+    | Listing admin_audits
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Auditable
+        th
+          | Associated type
+        th
+          | Associated
+        th
+          | Associated type
+        th
+          | User
+        th
+          | User type
+        th
+          | Username
+        th
+          | Action
+        th
+          | Audited changes
+        th
+    tbody
+      - @admin_audits.each do | admin_audit |
+        tr
+          td
+            = admin_audit.auditable_id
+          td
+            = admin_audit.associated_type
+          td
+            = admin_audit.associated_id
+          td
+            = admin_audit.associated_type
+          td
+            = admin_audit.user_id
+          td
+            = admin_audit.user_type
+          td
+            = admin_audit.username
+          td
+            = admin_audit.action
+          td
+            = admin_audit.audited_changes
+          td
+            = link_to 'Show', admin_audit
