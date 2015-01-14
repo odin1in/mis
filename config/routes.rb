@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+
   resources :feedbacks, only: [:new, :create]
+  resources :products do
+    resources :orders, only: [:new, :create]
+  end
+  resources :users, only: [:edit, :update]
+  resources :orders, only: [:index, :show]
   root 'welcome#index'
   get 'welcome/index'
 
@@ -13,7 +19,11 @@ Rails.application.routes.draw do
     get 'welcome/index'
     resources :users, except: [:new, :create]
     resources :suppliers
-    resources :products
+    resources :orders, except: [:destroy, :new, :create]
+    resources :products do
+      # resources :orders, only: [:new, :create]
+    end
+    resources :orders, only: [:index, :show, :edit, :create]
     resources :feedbacks, only: [:show, :index]
   end
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

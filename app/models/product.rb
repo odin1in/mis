@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  has_many :products
   belongs_to :supplier
   enum status: %i(inactive active)
 

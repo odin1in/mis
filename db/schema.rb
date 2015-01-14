@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114173550) do
+ActiveRecord::Schema.define(version: 20150114184026) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.string   "email"
@@ -24,6 +24,26 @@ ActiveRecord::Schema.define(version: 20150114173550) do
   end
 
   add_index "feedbacks", ["kind"], name: "index_feedbacks_on_kind"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.integer  "qty"
+    t.integer  "unit_price"
+    t.integer  "total"
+    t.integer  "status"
+    t.string   "delivery_name"
+    t.string   "delivery_address"
+    t.string   "delivery_phone"
+    t.string   "credit_card_number"
+    t.string   "cvv"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "orders", ["product_id"], name: "index_orders_on_product_id"
+  add_index "orders", ["status"], name: "index_orders_on_status"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
@@ -69,9 +89,11 @@ ActiveRecord::Schema.define(version: 20150114173550) do
     t.string   "name"
     t.string   "image"
     t.integer  "role",                   default: 0,  null: false
+    t.integer  "receive_dm"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["receive_dm"], name: "index_users_on_receive_dm"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["role"], name: "index_users_on_role"
 

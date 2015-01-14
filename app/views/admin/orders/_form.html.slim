@@ -1,0 +1,56 @@
+= form_for(@admin_order, :html => { :class => "form-horizontal" }) do |f|
+  - if @admin_order.errors.any?
+    .alert.alert-danger.alert-dismissable
+      button.close type="button" data-dismiss="alert" aria-hidden="true"
+        | &times;
+      h4= "#{pluralize(@admin_order.errors.count,"error")} prohibited this admin_order from being saved:"
+      ul
+        - @admin_order.errors.full_messages.each do |msg|
+          li= msg
+  .form-group
+    = f.label :product_id, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = @admin_order.product.title
+  .form-group
+    = f.label :qty, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :qty, :class => "form-control", disabled: true
+  .form-group
+    = f.label :unit_price, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :unit_price, :class => "form-control", disabled: true
+  .form-group
+    = f.label :total, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :total, :class => "form-control", disabled: true
+  .form-group
+    = f.label :status, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :status, Order.statuses.map{|a| [a.first, a.first]},{}, class: 'form-control'
+  .form-group
+    = f.label :delivery_name, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :delivery_name, :class => "form-control", disabled: true
+  .form-group
+    = f.label :delivery_address, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :delivery_address, :class => "form-control", disabled: true
+  .form-group
+    = f.label :delivery_phone, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :delivery_phone, :class => "form-control", disabled: true
+  .form-group
+    = f.label :credit_card_number, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :credit_card_number, :class => "form-control", disabled: true
+  .form-group
+    = f.label :cvv, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :cvv, :class => "form-control", disabled: true
+  .form-group
+    = f.label :user_id, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = @admin_order.user.name
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit :class => "btn btn-primary"

@@ -138,6 +138,8 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    polyamorous (1.1.0)
+      activerecord (>= 3.0)
     puma (2.10.2)
       rack (>= 1.1, < 2.0)
     rack (1.6.0)
@@ -173,6 +175,12 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
+    ransack (1.5.1)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.1)
     rdoc (4.2.0)
       json (~> 1.4)
     responders (2.0.2)
@@ -252,6 +260,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails-footnotes (~> 4.0)
   rails-i18n
+  ransack
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   slim-rails

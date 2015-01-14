@@ -1,0 +1,39 @@
+.page-header
+  = link_to orders_path, :class => 'btn btn-default' do
+    span.glyphicon.glyphicon-list-alt
+    |  Back
+  h1
+    | Show order
+dl.dl-horizontal
+  dt
+    | Product:
+  dd
+    = @order.product.title
+  dt
+    | Qty:
+  dd
+    = @order.qty
+  dt
+    | Unit price:
+  dd
+    = @order.unit_price
+  dt
+    | Total:
+  dd
+    = @order.total
+  dt
+    | Status:
+  dd
+    = @order.status
+  dt
+    | Delivery name:
+  dd
+    = @order.delivery_name
+  dt
+    | Delivery address:
+  dd
+    = @order.delivery_address
+  dt
+    | Delivery phone:
+  dd
+    = @order.delivery_phone

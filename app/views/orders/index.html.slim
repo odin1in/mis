@@ -1,0 +1,46 @@
+.page-header
+  h1
+    | Listing orders
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Product
+        th
+          | Qty
+        th
+          | Unit price
+        th
+          | Total
+        th
+          | Status
+        th
+          | Delivery name
+        th
+          | Delivery address
+        th
+          | Delivery phone
+        th
+    tbody
+      - @orders.each do | order |
+        tr
+          td
+            = order.product.try(:title)
+          td
+            = order.qty
+          td
+            = order.unit_price
+          td
+            = order.total
+          td
+            = order.status
+          td
+            = order.delivery_name
+          td
+            = order.delivery_address
+          td
+            = order.delivery_phone
+          td
+            = link_to 'Show', order

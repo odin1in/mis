@@ -1,0 +1,54 @@
+.page-header
+  = link_to admin_orders_path, :class => 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
+  = link_to edit_admin_order_path(@admin_order), :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-pencil
+    |  Edit 
+  h1
+    | Show admin_order
+dl.dl-horizontal
+  dt
+    | Product:
+  dd
+    = @admin_order.product_id
+  dt
+    | Qty:
+  dd
+    = @admin_order.qty
+  dt
+    | Unit price:
+  dd
+    = @admin_order.unit_price
+  dt
+    | Total:
+  dd
+    = @admin_order.total
+  dt
+    | Status:
+  dd
+    = @admin_order.status
+  dt
+    | Delivery name:
+  dd
+    = @admin_order.delivery_name
+  dt
+    | Delivery address:
+  dd
+    = @admin_order.delivery_address
+  dt
+    | Delivery phone:
+  dd
+    = @admin_order.delivery_phone
+  dt
+    | Credit card number:
+  dd
+    = @admin_order.credit_card_number
+  dt
+    | Cvv:
+  dd
+    = @admin_order.cvv
+  dt
+    | User:
+  dd
+    = @admin_order.user_id

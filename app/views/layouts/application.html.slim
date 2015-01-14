@@ -25,12 +25,16 @@ html
             span.icon-bar
           = link_to "Mis", "/", :class => "navbar-brand"
         .collapse.navbar-collapse
+          form.navbar-form.navbar-left action="/"
+            input.form-control type="text" placeholder="Search" name="q[title_or_content_cont]" value="#{params[:q] ? params[:q][:title_or_content_cont] : ""}"
           ul.nav.navbar-nav
             li = link_to "Can't find what you want?", :new_feedback
           ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               - if can? :access, Admin
                 li = link_to "Admin Panel", :admin_welcome_index
+              li = link_to "Order History", :orders
+              li = link_to "Profile", edit_user_path(current_user)
               li = link_to "Logout", destroy_user_session_path, method: :delete
             - else
               li = link_to "Sign Up", new_user_registration_path

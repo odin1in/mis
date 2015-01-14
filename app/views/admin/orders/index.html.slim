@@ -1,0 +1,58 @@
+.page-header
+  h1
+    | Listing admin_orders
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Product
+        th
+          | Qty
+        th
+          | Unit price
+        th
+          | Total
+        th
+          | Status
+        th
+          | Delivery name
+        th
+          | Delivery address
+        th
+          | Delivery phone
+        th
+          | Credit card number
+        th
+          | Cvv
+        th
+          | User
+        th
+    tbody
+      - @admin_orders.each do | admin_order |
+        tr
+          td
+            = admin_order.product.title
+          td
+            = admin_order.qty
+          td
+            = admin_order.unit_price
+          td
+            = admin_order.total
+          td
+            = admin_order.status
+          td
+            = admin_order.delivery_name
+          td
+            = admin_order.delivery_address
+          td
+            = admin_order.delivery_phone
+          td
+            = admin_order.credit_card_number
+          td
+            = admin_order.cvv
+          td
+            = admin_order.user.name
+          td
+            = link_to 'Edit', edit_admin_order_path(admin_order)

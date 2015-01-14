@@ -1,0 +1,55 @@
+.row
+  .thumbnail
+    img src="#{@product.image}" alt="..." style="max-height: 200px; overflow:hidden;"
+    .caption
+      h3
+        = @product.title
+        small<> Quantity: #{@product.qoh}
+      p = truncate(@product.content)
+      p only $#{@product.price}
+= form_for([@product, @order], :html => { :class => "form-horizontal" }) do |f|
+  - if @order.errors.any?
+    .alert.alert-danger.alert-dismissable
+      button.close type="button" data-dismiss="alert" aria-hidden="true"
+        | &times;
+      h4= "#{pluralize(@order.errors.count,"error")} prohibited this order from being saved:"
+      ul
+        - @order.errors.full_messages.each do |msg|
+          li= msg
+  .form-group
+    = f.label :qty, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :qty, :class => "form-control"
+
+  - if !@order.new_record?
+    .form-group
+      = f.label :total, :class => "col-sm-2 control-label"
+      .col-sm-10
+        = f.number_field :total, :class => "form-control"
+    .form-group
+      = f.label :status, :class => "col-sm-2 control-label"
+      .col-sm-10
+        = f.number_field :status, :class => "form-control"
+  .form-group
+    = f.label :delivery_name, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :delivery_name, :class => "form-control"
+  .form-group
+    = f.label :delivery_address, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :delivery_address, :class => "form-control"
+  .form-group
+    = f.label :delivery_phone, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :delivery_phone, :class => "form-control"
+  .form-group
+    = f.label :credit_card_number, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :credit_card_number, :class => "form-control"
+  .form-group
+    = f.label :cvv, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :cvv, :class => "form-control"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit :class => "btn btn-primary"

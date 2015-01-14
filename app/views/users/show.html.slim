@@ -1,0 +1,30 @@
+.page-header
+  = link_to admin_users_path, :class => 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
+  = link_to edit_admin_user_path(@admin_user), :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-pencil
+    |  Edit 
+  h1
+    | Show admin_user
+dl.dl-horizontal
+  dt
+    | Name:
+  dd
+    = @admin_user.name
+  dt
+    | Role:
+  dd
+    = @admin_user.role
+  dt
+    | Image:
+  dd
+    = @admin_user.image
+  dt
+    | Email:
+  dd
+    = @admin_user.email
+  dt
+    | Password:
+  dd
+    = @admin_user.password

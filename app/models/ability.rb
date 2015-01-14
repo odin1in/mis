@@ -10,9 +10,11 @@ class Ability
       can :manage, User
       can :manage, Admin::Product
       can :manage, Admin::Feedback
+      can :manage, Admin::Order
     elsif user.warehouse_manager?
       can :access, Admin
       can :manage, Admin::Product
+      can :manage, Admin::Order
     elsif user.purchaser?
       can :access, Admin
       can :manage, Admin::Product

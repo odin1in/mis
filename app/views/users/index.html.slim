@@ -7,14 +7,13 @@
     thead
       tr
         th
-        th
           | Name
         th
           | Role
         th
-          | Email
+          | Image
         th
-          | Spent
+          | Email
         th
         th
         th
@@ -22,16 +21,13 @@
       - @admin_users.each do | admin_user |
         tr
           td
-            = image_tag(admin_user.image)
-          td
             = admin_user.name
-            =< link_to "FB", "https://facebook.com/#{admin_user.uid}", target: :_blank
           td
             = admin_user.role
           td
-            = admin_user.email
+            = admin_user.image
           td
-            = admin_user.orders.sum(:total)
+            = admin_user.email
           td
             = link_to 'Show', admin_user
           td

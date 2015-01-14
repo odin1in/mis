@@ -13,10 +13,11 @@
             = product.title
             small<> Quantity: #{product.qoh}
           p = truncate(product.content)
+          p only $#{product.price}
           p
             - if product.out_of_stock?
               a.btn.btn-default href=new_feedback_path(feedback: {kind: :notify_me_when_available}) role="button"  Notify Me When Available
             - else
-              a.btn.btn-primary href="#" role="button"  Buy Now
+              a.btn.btn-primary href=new_product_order_path(product) role="button"  Buy Now
 
 
