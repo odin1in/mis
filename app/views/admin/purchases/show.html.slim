@@ -1,0 +1,38 @@
+.page-header
+  = link_to admin_purchases_path, :class => 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
+  = link_to edit_admin_purchase_path(@admin_purchase), :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-pencil
+    |  Edit 
+  h1
+    | Show admin_purchase
+dl.dl-horizontal
+  dt
+    | Supplier:
+  dd
+    = @admin_purchase.supplier_id
+  dt
+    | Product:
+  dd
+    = @admin_purchase.product_id
+  dt
+    | Cpu:
+  dd
+    = @admin_purchase.cpu
+  dt
+    | Qty:
+  dd
+    = @admin_purchase.qty
+  dt
+    | Total:
+  dd
+    = @admin_purchase.total
+  dt
+    | Deliver at:
+  dd
+    = @admin_purchase.deliver_at
+  dt
+    | Status:
+  dd
+    = @admin_purchase.status

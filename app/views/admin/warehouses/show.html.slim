@@ -1,0 +1,18 @@
+.page-header
+  = link_to admin_warehouses_path, :class => 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
+  = link_to edit_admin_warehouse_path(@admin_warehouse), :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-pencil
+    |  Edit 
+  h1
+    | Show admin_warehouse
+dl.dl-horizontal
+  dt
+    | Name:
+  dd
+    = @admin_warehouse.name
+  dt
+    | Address:
+  dd
+    = @admin_warehouse.address

@@ -15,10 +15,12 @@ class Ability
       can :access, Admin
       can :manage, Admin::Product
       can :manage, Admin::Order
+      can :manage, Admin::Purchase
     elsif user.purchaser?
       can :access, Admin
       can :manage, Admin::Product
       can :manage, Admin::Supplier
+      can :manage, Admin::Purchase
     elsif user.admin?
       can :manage, :all
       can :access, Admin

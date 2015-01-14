@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114192905) do
+ActiveRecord::Schema.define(version: 20150114225123) do
+
+  create_table "admin_warehouses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -85,6 +92,23 @@ ActiveRecord::Schema.define(version: 20150114192905) do
   add_index "products", ["qoh"], name: "index_products_on_qoh"
   add_index "products", ["safety"], name: "index_products_on_safety"
   add_index "products", ["status"], name: "index_products_on_status"
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "supplier_id"
+    t.integer  "product_id"
+    t.integer  "cpu"
+    t.integer  "qty"
+    t.integer  "total"
+    t.datetime "deliver_at"
+    t.integer  "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "purchases", ["deliver_at"], name: "index_purchases_on_deliver_at"
+  add_index "purchases", ["product_id"], name: "index_purchases_on_product_id"
+  add_index "purchases", ["status"], name: "index_purchases_on_status"
+  add_index "purchases", ["supplier_id"], name: "index_purchases_on_supplier_id"
 
   create_table "suppliers", force: :cascade do |t|
     t.string   "name"

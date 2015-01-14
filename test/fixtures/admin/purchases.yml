@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  supplier_id: 1
+  product_id: 1
+  cpu: 1
+  qty: 1
+  total: 1
+  deliver_at: 2015-01-15 04:15:55
+  status: 1
+
+two:
+  supplier_id: 1
+  product_id: 1
+  cpu: 1
+  qty: 1
+  total: 1
+  deliver_at: 2015-01-15 04:15:55
+  status: 1

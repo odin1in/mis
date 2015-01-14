@@ -1,0 +1,20 @@
+= form_for(@admin_warehouse, :html => { :class => "form-horizontal" }) do |f|
+  - if @admin_warehouse.errors.any?
+    .alert.alert-danger.alert-dismissable
+      button.close type="button" data-dismiss="alert" aria-hidden="true" 
+        | &times;
+      h4= "#{pluralize(@admin_warehouse.errors.count,"error")} prohibited this admin_warehouse from being saved:"
+      ul
+        - @admin_warehouse.errors.full_messages.each do |msg|
+          li= msg
+  .form-group
+    = f.label :name, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :name, :class => "form-control"
+  .form-group
+    = f.label :address, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :address, :class => "form-control"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit :class => "btn btn-primary"

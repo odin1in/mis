@@ -1,0 +1,51 @@
+.page-header
+  = link_to new_admin_purchase_path, :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-plus
+    |  New Purchase
+  h1
+    | Listing admin_purchases
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Supplier
+        th
+          | Product
+        th
+          | Cpu
+        th
+          | Qty
+        th
+          | Total
+        th
+          | Deliver at
+        th
+          | Status
+        th
+        th
+        th
+    tbody
+      - @admin_purchases.each do | admin_purchase |
+        tr
+          td
+            = admin_purchase.supplier_id
+          td
+            = admin_purchase.product_id
+          td
+            = admin_purchase.cpu
+          td
+            = admin_purchase.qty
+          td
+            = admin_purchase.total
+          td
+            = admin_purchase.deliver_at
+          td
+            = admin_purchase.status
+          td
+            = link_to 'Show', admin_purchase
+          td
+            = link_to 'Edit', edit_admin_purchase_path(admin_purchase) 
+          td
+            = link_to 'Destroy', admin_purchase, method: :delete, data: { confirm: 'Are you sure?' } 

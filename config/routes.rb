@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :warehouses
+  end
+
   resources :feedbacks, only: [:new, :create]
   resources :products do
     resources :orders, only: [:new, :create]
@@ -18,8 +22,10 @@ Rails.application.routes.draw do
     get 'welcome/index'
     resources :audits, only: [:index, :show]
     resources :users, except: [:new, :create]
+    resources :staffs
     resources :suppliers
     resources :orders, except: [:destroy, :new, :create]
+    resources :purchases, except: [:delete]
     resources :products do
       member do
         get 'buyers'

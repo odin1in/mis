@@ -1,0 +1,40 @@
+= form_for(@admin_purchase, :html => { :class => "form-horizontal" }) do |f|
+  - if @admin_purchase.errors.any?
+    .alert.alert-danger.alert-dismissable
+      button.close type="button" data-dismiss="alert" aria-hidden="true" 
+        | &times;
+      h4= "#{pluralize(@admin_purchase.errors.count,"error")} prohibited this admin_purchase from being saved:"
+      ul
+        - @admin_purchase.errors.full_messages.each do |msg|
+          li= msg
+  .form-group
+    = f.label :supplier_id, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :supplier_id, :class => "form-control"
+  .form-group
+    = f.label :product_id, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :product_id, :class => "form-control"
+  .form-group
+    = f.label :cpu, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :cpu, :class => "form-control"
+  .form-group
+    = f.label :qty, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :qty, :class => "form-control"
+  .form-group
+    = f.label :total, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :total, :class => "form-control"
+  .form-group
+    = f.label :deliver_at, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.datetime_select :deliver_at, :class => "form-control"
+  .form-group
+    = f.label :status, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :status, :class => "form-control"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit :class => "btn btn-primary"

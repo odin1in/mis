@@ -1,0 +1,31 @@
+.page-header
+  = link_to new_admin_warehouse_path, :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-plus
+    |  New Warehouse
+  h1
+    | Listing admin_warehouses
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Name
+        th
+          | Address
+        th
+        th
+        th
+    tbody
+      - @admin_warehouses.each do | admin_warehouse |
+        tr
+          td
+            = admin_warehouse.name
+          td
+            = admin_warehouse.address
+          td
+            = link_to 'Show', admin_warehouse
+          td
+            = link_to 'Edit', edit_admin_warehouse_path(admin_warehouse) 
+          td
+            = link_to 'Destroy', admin_warehouse, method: :delete, data: { confirm: 'Are you sure?' } 
