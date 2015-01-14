@@ -1,0 +1,37 @@
+.page-header
+  = link_to new_feedback_path, :class => 'btn btn-primary' do
+    span.glyphicon.glyphicon-plus
+    |  New Feedback
+  h1
+    | Listing feedbacks
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Email
+        th
+          | Name
+        th
+          | Phone
+        th
+          | Note
+        th
+          | Kind
+        th
+    tbody
+      - @feedbacks.each do | feedback |
+        tr
+          td
+            = feedback.email
+          td
+            = feedback.name
+          td
+            = feedback.phone
+          td
+            = feedback.note
+          td
+            = feedback.kind
+          td
+            = link_to 'Show', feedback

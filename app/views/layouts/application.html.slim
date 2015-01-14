@@ -26,6 +26,7 @@ html
           = link_to "Mis", "/", :class => "navbar-brand"
         .collapse.navbar-collapse
           ul.nav.navbar-nav
+            li = link_to "Can't find what you want?", :new_feedback
           ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               - if can? :access, Admin

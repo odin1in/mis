@@ -9,6 +9,7 @@ class Ability
       can :access, Admin
       can :manage, User
       can :manage, Admin::Product
+      can :manage, Admin::Feedback
     elsif user.warehouse_manager?
       can :access, Admin
       can :manage, Admin::Product

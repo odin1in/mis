@@ -1,0 +1,30 @@
+.page-header
+  = link_to feedbacks_path, :class => 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
+  = link_to edit_feedback_path(@feedback), :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-pencil
+    |  Edit 
+  h1
+    | Show feedback
+dl.dl-horizontal
+  dt
+    | Email:
+  dd
+    = @feedback.email
+  dt
+    | Name:
+  dd
+    = @feedback.name
+  dt
+    | Phone:
+  dd
+    = @feedback.phone
+  dt
+    | Note:
+  dd
+    = @feedback.note
+  dt
+    | Kind:
+  dd
+    = @feedback.kind

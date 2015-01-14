@@ -1,0 +1,36 @@
+= form_for(@feedback, :html => { :class => "form-horizontal" }) do |f|
+  - if @feedback.errors.any?
+    .alert.alert-danger.alert-dismissable
+      button.close type="button" data-dismiss="alert" aria-hidden="true"
+        | &times;
+      h4= "#{pluralize(@feedback.errors.count,"error")} prohibited this feedback from being saved:"
+      ul
+        - @feedback.errors.full_messages.each do |msg|
+          li= msg
+
+  .form-group
+
+    = f.label :kind, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :kind, Feedback.kinds.map{|a| [a.first, a.first]},{}, class: 'form-control', disabled: true
+      = f.hidden_field :kind
+  .form-group
+    = f.label :email, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :email, :class => "form-control"
+  .form-group
+    = f.label :name, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :name, :class => "form-control"
+  .form-group
+    = f.label :phone, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :phone, :class => "form-control"
+  .form-group
+    = f.label :note, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_area :note, :class => "form-control"
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit :class => "btn btn-primary"

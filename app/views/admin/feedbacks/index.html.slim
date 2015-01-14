@@ -1,0 +1,34 @@
+.page-header
+  h1
+    | Listing admin_feedbacks
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Email
+        th
+          | Name
+        th
+          | Phone
+        th
+          | Note
+        th
+          | Kind
+        th
+    tbody
+      - @admin_feedbacks.each do | admin_feedback |
+        tr
+          td
+            = admin_feedback.email
+          td
+            = admin_feedback.name
+          td
+            = admin_feedback.phone
+          td
+            = admin_feedback.note
+          td
+            = admin_feedback.kind
+          td
+            = link_to 'Show', admin_feedback
